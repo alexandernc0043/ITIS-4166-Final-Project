@@ -49,7 +49,7 @@ export async function getUserByEmail(email) {
     handlePrismaError(error.code);
   }
 }
-async function getAllUsers() {
+export async function getAllUsers() {
   const users = await prisma.user.findMany({ omit: { password: true } });
   return users;
 }
@@ -58,8 +58,7 @@ async function getAllUsers() {
  * Updates a user in the database
  * @param {string name, string email, string password, string? role } data
  */
-export async function updateUser(data) {
-  const { id } = data;
+export async function updateUser(id, data) {
   try {
     const updatedUser = await prisma.user.update({
       where: { id },
@@ -71,12 +70,12 @@ export async function updateUser(data) {
     handlePrismaError(error);
   }
 }
-export async function updateUserRole(data) {
+export async function updateUserRole(id, role) {
   try {
     const updatedUser = await prisma.user.update({
       where: {
-        id: data.id,
-        role: data.role,
+        id: id,
+        role: role,
       },
       omit: {
         password: true,

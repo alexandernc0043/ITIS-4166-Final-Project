@@ -23,6 +23,55 @@ tags:
     description: Operations related to authors
 
 paths:
+  /users/me:
+    put:
+      security:
+        - bearerAuth: []
+      tags:
+        - Users
+      summary: Update Authenticated User
+      description: Updates the authenticated user in the database
+      responses:
+        '200':
+          $ref: '#/components/responses/UserSuccessCase'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/EmailConflict'
+
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - Users
+      summary: Get Authenticated User
+      description: Get the authenticated user's account
+      responses:
+        '200':
+          $ref: '#/components/responses/UserSuccessCase'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /users/:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - Users
+      summary: Get All Users
+      responses:
+        '200':
+          description: Success Case
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+        '403':
+          $ref: '#/components/responses/Forbidden'
   # -------------------- BEGIN /api/auth/login --------------------
   /auth/login:
     post:
@@ -148,7 +197,7 @@ components:
           example: 9.99
         published:
           type: string
-          example: ''
+          example: '2026-03-29T02:41:10.737Z'
         authorId:
           type: number
           example: 1
@@ -162,10 +211,15 @@ components:
         email:
           type: string
           readOnly: false
+          example: user@example.com
         role:
           type: string
           readOnly: true
           example: USER
+        createdAt:
+          type: string
+          readOnly: true
+          example: '2026-03-29T02:41:10.737Z'
     Review:
       type: object
       properties:
@@ -180,7 +234,7 @@ components:
         createdAt:
           type: string
           readOnly: true
-          example: a
+          example: '2026-03-29T02:41:10.737Z'
         rating:
           type: number
           readOnly: false
@@ -196,6 +250,13 @@ components:
   # -------------------- END SCHEMA COMPONENTS --------------------
   responses:
     # -------------------- BEGIN RESPONSE COMPONENTS --------------------
+    UserSuccessCase:
+      description: Success Case
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '#/components/schemas/User'
     NotFound:
       description: Resource Not Found
       content:
@@ -269,4 +330,9 @@ components:
                 type: string
             example:
               error: 'Forbidden: insufficient permission'
-# -------------------- END RESPONSE COMPONENTS --------------------
+  # -------------------- END RESPONSE COMPONENTS --------------------
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

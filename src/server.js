@@ -5,6 +5,7 @@ import yaml from 'js-yaml';
 import fs from 'fs';
 // import postRoutes from './routes/postRoutes.js';
 import authRoutes from './routes/authenticationRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,7 +21,7 @@ try {
   process.exit(1);
 }
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
-// app.use('/api/posts', postRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 
 app.use((req, res, next) => {
@@ -40,6 +41,9 @@ app.use((err, req, res, next) => {
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+}
+if (process.env.NODE_ENV == 'development') {
+  console.log(`http://localhost:${PORT}/api/docs`);
 }
 
 export default app;
