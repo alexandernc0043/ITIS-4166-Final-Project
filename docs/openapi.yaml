@@ -1,0 +1,272 @@
+openapi: 3.0.3
+info:
+  title: Bookstore Management API
+  version: 1.0.0
+  description: API documentation for bookstore management
+servers:
+  - url: http://localhost:8080/api
+    description: Local Development Server
+  # - url: example.com
+  #   description: Production Server
+tags:
+  - name: Monitoring
+    description: API Monitoring endpoints
+  - name: Reviews
+    description: Operations related to reviews
+  - name: Users
+    description: Operations related to users
+  - name: Authentication
+    description: User authentication endpoints
+  - name: Books
+    description: Operations related to books
+  - name: Authors
+    description: Operations related to authors
+
+paths:
+  # -------------------- BEGIN /api/auth/login --------------------
+  /auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Authenticate User
+      description: Authenticate a user and return an access token.
+      requestBody:
+        description: User login credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/AuthCredentials'
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accessToken:
+                    type: string
+                example:
+                  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+        '400':
+          $ref: '#/components/responses/InvalidUserInput'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                example:
+                  error: 'Invalid credentials'
+  # -------------------- END /api/auth/login --------------------
+  # -------------------- BEGIN /api/auth/signup --------------------
+  /auth/signup:
+    post:
+      tags:
+        - Authentication
+      summary: Create an Account
+      description: Creates a user and returns the information about them
+      requestBody:
+        description: User login credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/AuthCredentials'
+      responses:
+        '400':
+          $ref: '#/components/responses/InvalidUserInput'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                example:
+                  error: 'Invalid credentials'
+        '201':
+          description: Account Creation Successful
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/User'
+        '409':
+          $ref: '#/components/responses/EmailConflict'
+  # -------------------- END /api/auth/signup --------------------
+  /health:
+    get:
+      summary: Health Check
+      description: Returns the current status of the API. Used by Render to verify service is running.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: API is running successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+components:
+  # -------------------- BEGIN SCHEMA COMPONENTS --------------------
+  schemas:
+    AuthCredentials:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: 'user@example.com'
+        password: 'password123'
+    Book:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+          readOnly: true
+        name:
+          type: string
+          example: 'The Very Hungry Caterpillar'
+        price:
+          type: number
+          example: 9.99
+        published:
+          type: string
+          example: ''
+        authorId:
+          type: number
+          example: 1
+    User:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+          readOnly: true
+        email:
+          type: string
+          readOnly: false
+        role:
+          type: string
+          readOnly: true
+          example: USER
+    Review:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+          readOnly: true
+        content:
+          type: string
+          example: 'This was a really good book!'
+          readOnly: false
+        createdAt:
+          type: string
+          readOnly: true
+          example: a
+        rating:
+          type: number
+          readOnly: false
+          example: 5
+        bookId:
+          type: number
+          readOnly: false
+          example: 1
+        userId:
+          type: number
+          readOnly: true
+          example: 1
+  # -------------------- END SCHEMA COMPONENTS --------------------
+  responses:
+    # -------------------- BEGIN RESPONSE COMPONENTS --------------------
+    NotFound:
+      description: Resource Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+            example:
+              error: Resource 1 not found
+    BadResourceId:
+      description: Invalid ID
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  type: string
+            example:
+              errors:
+                - ID must be a postive integer
+    InvalidUserInput:
+      description: Bad Request due to invalid data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  type: string
+            example:
+              errors:
+                - 'Email is required'
+                - 'Password is required'
+    EmailConflict:
+      description: Email is already in use
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+            example:
+              error: Email has already been used
+    Unauthorized:
+      description: Client is not authenticated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+            example:
+              error: 'Not authenticated. Please provide a valid token.'
+    Forbidden:
+      description: Client is not authorized
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+            example:
+              error: 'Forbidden: insufficient permission'
+# -------------------- END RESPONSE COMPONENTS --------------------

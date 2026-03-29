@@ -4,7 +4,7 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
@@ -16,9 +16,8 @@ model Book {
   name String
   price Decimal
   published DateTime
-  genre String[]
-  author Author @relation(fields: [author_id], references: [id], onDelete: Cascade)
-  author_id Int
+  author Author @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId Int @map("author_id")
   reviews Review[]
   @@map("books")
 }
@@ -35,10 +34,10 @@ model Review {
   rating Int
   
   book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
-  bookId Int
+  bookId Int @map("book_id")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
+  userId Int @map("user_id")
   
   @@map("reviews")
 }
@@ -48,10 +47,10 @@ enum Role {
 }
 model User {
   id Int @id @default(autoincrement())
-  email String
+  email String @unique
   password String
   createdAt DateTime @default(now()) @map("created_at")
-  role Role
+  role Role @default(USER)
   reviews Review[]
   @@map("users")
 }
