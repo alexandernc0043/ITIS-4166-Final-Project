@@ -23,22 +23,226 @@ tags:
     description: Operations related to authors
 
 paths:
+  /authors/{id}/books:
+    parameters:
+      - $ref: '#/components/parameters/ResourceId'
+    get:
+      summary: Get Author's Books
+      tags:
+        - Authors
+      responses:
+        '200':
+          description: Success Case
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: '#/components/schemas/Book'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      deprecated: false
+  /authors/{id}:
+    parameters:
+      - $ref: '#/components/parameters/ResourceId'
+    put:
+      security:
+        - bearerAuth: []
+      tags:
+        - Authors
+      summary: Update Author By Id
+      description: Updates an author by id.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Author'
+      responses:
+        '200':
+          $ref: '#/components/responses/AuthorSuccessCase'
+        '400':
+          description: Bad Request due to invalid input or invalid ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                example:
+                  errors:
+                    - ID must be a positive integer
+                    - Name must be at least 4 characters
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    get:
+      tags:
+        - Authors
+      summary: Get Author By Id
+      description: Get author by Id
+      responses:
+        '200':
+          $ref: '#/components/responses/AuthorSuccessCase'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+    delete:
+      security:
+        - bearerAuth: []
+      tags:
+        - Authors
+      summary: Delete Author by Id
+      responses:
+        '204':
+          description: Sucessfully deleted Author
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/compoents/responses/NotFound'
+  /authors/:
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - Authors
+      summary: Create Author
+      responses:
+        '201':
+          $ref: '#/components/responses/AuthorSuccessCase'
+        '400':
+          $ref: '#/components/responses/BadAuthorData'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Author'
+    get:
+      tags:
+        - Authors
+      summary: Get All Authors
+      description: Get all authors in the database.
+      responses:
+        '200':
+          description: Success Case
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: '#/components/schemas/Author'
+
+  # -------------------- BEGIN /api/users/:id --------------------
+  /users/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete User
+      description: Deletes a user in the database by Id
+      tags:
+        - Users
+      responses:
+        '204':
+          description: User deleted successfully.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+      deprecated: false
+    patch:
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      tags:
+        - Users
+      summary: Update User Role
+      description: Update a user's role in the database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                role:
+                  type: string
+              example:
+                role: USER
+      responses:
+        '200':
+          $ref: '#/components/responses/UserSuccessCase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    get:
+      summary: Get User By Id
+      description: Gets a user in the database by Id
+      tags:
+        - Users
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserSuccessCase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  # -------------------- END /api/users/:id --------------------
+  # -------------------- BEGIN /api/users/me --------------------
   /users/me:
     put:
       security:
         - bearerAuth: []
       tags:
         - Users
+      requestBody:
+        description: New User Details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthCredentials'
+
       summary: Update Authenticated User
       description: Updates the authenticated user in the database
       responses:
         '200':
           $ref: '#/components/responses/UserSuccessCase'
+        '400':
+          $ref: '#/components/responses/BadUpdateInformation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/EmailConflict'
-
     get:
       security:
         - bearerAuth: []
@@ -51,6 +255,8 @@ paths:
           $ref: '#/components/responses/UserSuccessCase'
         '404':
           $ref: '#/components/responses/NotFound'
+  # -------------------- END /api/users/me --------------------
+  # -------------------- BEGIN /api/users/ --------------------
   /users/:
     get:
       security:
@@ -72,6 +278,7 @@ paths:
 
         '403':
           $ref: '#/components/responses/Forbidden'
+  # -------------------- END /api/users/ --------------------
   # -------------------- BEGIN /api/auth/login --------------------
   /auth/login:
     post:
@@ -152,6 +359,7 @@ paths:
         '409':
           $ref: '#/components/responses/EmailConflict'
   # -------------------- END /api/auth/signup --------------------
+  # -------------------- BEGIN /api/health/ --------------------
   /health:
     get:
       summary: Health Check
@@ -169,9 +377,34 @@ paths:
                   status:
                     type: string
                     example: ok
+  # -------------------- END /api/health/ --------------------
 components:
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      required: true
+      description: Resource ID
+      schema:
+        type: integer
+        example: 1
   # -------------------- BEGIN SCHEMA COMPONENTS --------------------
   schemas:
+    Author:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+          readOnly: true
+        name:
+          type: string
+          example: 'Alex Prechtel'
+          readOnly: false
+        createdAt:
+          type: string
+          readOnly: true
+          example: '2026-03-29T02:41:10.737Z'
     AuthCredentials:
       type: object
       properties:
@@ -250,6 +483,24 @@ components:
   # -------------------- END SCHEMA COMPONENTS --------------------
   responses:
     # -------------------- BEGIN RESPONSE COMPONENTS --------------------
+    BadAuthorData:
+      description: Bad Author data.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+            example:
+              error: Name must be at least 4+ characters
+    AuthorSuccessCase:
+      description: Success Case
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '#/components/schemas/Author'
     UserSuccessCase:
       description: Success Case
       content:
@@ -282,6 +533,22 @@ components:
             example:
               errors:
                 - ID must be a postive integer
+    BadUpdateInformation:
+      description: Bad Request due to invalid data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  type: string
+            example:
+              errors:
+                - 'Email or password is required'
+                - 'Password must contain at least 8 characters and at most 64 characters'
+                - 'Email must be vaild'
     InvalidUserInput:
       description: Bad Request due to invalid data
       content:
