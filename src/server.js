@@ -3,7 +3,6 @@ import morgan from 'morgan';
 import swaggerUi from 'swagger-ui-express';
 import yaml from 'js-yaml';
 import fs from 'fs';
-// import postRoutes from './routes/postRoutes.js';
 import authRoutes from './routes/authenticationRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
@@ -15,7 +14,7 @@ if (process.env.NODE_ENV !== 'test') app.use(morgan('tiny'));
 
 let specs;
 try {
-  specs = yaml.load(fs.readFileSync('./docs/openapi.yaml', 'utf-8'));
+  specs = yaml.load(fs.readFileSync('docs/openapi.yaml', 'utf-8'));
 } catch (err) {
   console.log('Failed to load OpenAPI specification', err);
   process.exit(1);
