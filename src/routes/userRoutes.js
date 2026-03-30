@@ -7,15 +7,17 @@ import {
   validateUpdateUser,
 } from '../middleware/userValidators.js';
 
-import * as controller from '../controllers/userController.js';
+import * as handler from '../controllers/userController.js';
 
 const router = express.Router();
 
-// Get User (self)
-// Errors
-// 404 - Not Found
-// 401 - Unauthorized
-router.get('/me', authenticateUser, controller.getUserHandler);
+/**
+ * Get User (Self)
+ * Errors
+ * 404 - Not Found
+ * 401 - Unauthorized
+ */
+router.get('/me', authenticateUser, handler.getUserHandler);
 
 // Update User (self)
 // Errors
@@ -25,7 +27,7 @@ router.put(
   '/me',
   authenticateUser,
   validateUpdateUser,
-  controller.updateUserHandler,
+  handler.updateUserHandler,
 );
 
 // Get Users (All) (Admin)
@@ -36,7 +38,7 @@ router.get(
   '/',
   authenticateUser,
   authorizeRoles('ADMIN'),
-  controller.getAllUsersHandler,
+  handler.getAllUsersHandler,
 );
 
 // Get Users (Single) (Admin)
@@ -49,7 +51,7 @@ router.get(
   authenticateUser,
   authorizeRoles('ADMIN'),
   validateId,
-  controller.getUserByIdHandler,
+  handler.getUserByIdHandler,
 );
 
 // Update User Role (Admin)
@@ -64,7 +66,7 @@ router.patch(
   authorizeRoles('ADMIN'),
   validateId,
   validateRole,
-  controller.updateUserRoleHandler,
+  handler.updateUserRoleHandler,
 );
 
 export default router;

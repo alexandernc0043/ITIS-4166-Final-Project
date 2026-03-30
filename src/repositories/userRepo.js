@@ -11,7 +11,6 @@ function handlePrismaError(error) {
       emailConflictError.status = 409; // Conflict
       throw emailConflictError;
     default:
-      console.log(error.code);
       throw error;
   }
 }
@@ -82,6 +81,13 @@ export async function updateUserRole(id, role) {
       },
     });
     return updatedUser;
+  } catch (error) {
+    handlePrismaError(error);
+  }
+}
+export async function deleteUser(id) {
+  try {
+    await prisma.user.delete({ where: { id } });
   } catch (error) {
     handlePrismaError(error);
   }

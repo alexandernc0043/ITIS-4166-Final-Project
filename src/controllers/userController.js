@@ -30,3 +30,8 @@ export async function updateUserRoleHandler(req, res) {
   const updatedUser = await service.updateUserRole(id, role);
   res.status(200).json(updatedUser);
 }
+export async function deleteUserHandler(req, res) {
+  const { id } = req.params;
+  await service.deleteUser(id);
+  res.status(204);
+}

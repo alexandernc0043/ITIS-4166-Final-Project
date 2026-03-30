@@ -16,3 +16,6 @@ export async function updateUserRole(id, role) {
   const updatedUser = await repo.updateUserRole(id, role);
   return updatedUser;
 }
+export async function deleteUser(id) {
+  await repo.deleteUser(id);
+}
