@@ -18,6 +18,9 @@ router.get('/:id', validateId, handler.getAuthorByIdHandler); // get single
  * None
  */
 router.get('/', handler.getAllAuthorsHandler);
+
+router.get('/:id/books', validateId, handler.getAuthorBooksHandler);
+
 /**
  * Create Author
  * Errors

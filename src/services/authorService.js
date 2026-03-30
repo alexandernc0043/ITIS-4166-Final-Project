@@ -18,3 +18,8 @@ export async function getAuthorById(id) {
   const author = await repo.getAuthorById(id);
   return author;
 }
+
+export async function getAuthorBooks(id) {
+  const books = await repo.getAuthorBooks(id);
+  return books;
+}

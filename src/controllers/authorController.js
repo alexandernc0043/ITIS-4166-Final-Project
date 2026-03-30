@@ -24,3 +24,8 @@ export async function getAuthorByIdHandler(req, res) {
   const author = await service.getAuthorById(id);
   res.status(200).json(author);
 }
+export async function getAuthorBooksHandler(req, res) {
+  const id = parseInt(req.params.id);
+  const books = await service.getAuthorBooks(id);
+  res.status(200).json(books);
+}
