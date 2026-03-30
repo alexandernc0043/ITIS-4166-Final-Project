@@ -7,6 +7,7 @@ import authRoutes from './routes/authenticationRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import authorRoutes from './routes/authorRoutes.js';
 import bookRoutes from './routes/bookRoutes.js';
+import reviewRoutes from './routes/reviewRoutes.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -23,11 +24,12 @@ try {
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/api/users', userRoutes);
 app.use('/api/authors', authorRoutes);
+app.use('/api/reviews', reviewRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/auth', authRoutes);
 
 app.use((req, res, next) => {
-  const err = new Error('Not Found');
+  const err = new Error('Route Not Found');
   err.status = 404;
   next(err);
 });

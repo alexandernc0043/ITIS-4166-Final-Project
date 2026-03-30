@@ -17,8 +17,12 @@ function handlePrismaError(error) {
   }
 }
 export async function createReview(data) {
-  const createdReview = await prisma.review.create({ data });
-  return createdReview;
+  try {
+    const createdReview = await prisma.review.create({ data });
+    return createdReview;
+  } catch (error) {
+    handlePrismaError(error);
+  }
 }
 export async function getReviewById(id) {
   try {

@@ -19,3 +19,7 @@ export async function updateBook(id, data) {
 export async function deleteBook(id) {
   await repo.deleteBook(id);
 }
+export async function getBookReviews(id) {
+  const reviews = await repo.getBookReviews(id);
+  return reviews;
+}

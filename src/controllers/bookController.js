@@ -35,3 +35,8 @@ export async function deleteBookHandler(req, res) {
   await service.deleteBook(id);
   res.status(204);
 }
+export async function getBookReviewsHandler(req, res) {
+  const id = parseInt(req.params.id);
+  const reviews = await service.getBookReviews(id);
+  res.status(200).json(reviews);
+}

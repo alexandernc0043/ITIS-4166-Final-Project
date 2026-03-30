@@ -45,3 +45,4 @@ router.delete(
   authorizeOwnership,
   handler.deleteReviewHandler,
 );
+export default router;

@@ -23,6 +23,26 @@ tags:
     description: Operations related to authors
 
 paths:
+  /books/{id}/reviews:
+    parameters:
+      - $ref: '#/components/parameters/ResourceId'
+    get:
+      summary: Get Reviews by Book
+      description: Get reviews relating to a book by it's id.
+      tags:
+        - Books
+      responses:
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+        '200':
+          description: Success Case
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: '#/components/schemas/review'
   /books/{id}:
     parameters:
       - $ref: '#/components/parameters/ResourceId'

@@ -12,6 +12,7 @@ const router = express.Router();
 
 router.get('/', handler.getAllBookHandler);
 router.get('/:id', validateId, handler.getBookByIdHandler);
+router.get('/:id/reviews', validateId, handler.getBookReviewsHandler);
 router.post(
   '/',
   authenticateUser,
