@@ -7,7 +7,7 @@ function handlePrismaError(error) {
       throw reviewNotFoundError;
     }
     case 'P2003': {
-      const authorNotFound = new Error('Author not found');
+      const authorNotFound = new Error('Book not found');
       authorNotFound.status = 400;
       throw authorNotFound;
     }
