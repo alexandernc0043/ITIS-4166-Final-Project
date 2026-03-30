@@ -1,9 +1,10 @@
 import express from 'express';
-import { validateId } from '../middleware/userValidators';
-import authenticateUser from '../middleware/authenticateUser';
-import authorizeRoles from '../middleware/authorizeRole';
+import { validateId } from '../middleware/userValidators.js';
+import authenticateUser from '../middleware/authenticateUser.js';
+import authorizeRoles from '../middleware/authorizeRole.js';
 import * as handler from '../controllers/authorController.js';
 import { validateAuthorName } from '../middleware/authorValidator.js';
+
 const router = express.Router();
 /**
  * Get Author By Id
@@ -62,3 +63,4 @@ router.delete(
   authorizeRoles('ADMIN'),
   handler.deleteAuthorController,
 );
+export default router;

@@ -5,6 +5,7 @@ import yaml from 'js-yaml';
 import fs from 'fs';
 import authRoutes from './routes/authenticationRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import authorRoutes from './routes/authorRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +22,7 @@ try {
 }
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/api/users', userRoutes);
+app.use('/api/authors', authorRoutes);
 app.use('/api/auth', authRoutes);
 
 app.use((req, res, next) => {
