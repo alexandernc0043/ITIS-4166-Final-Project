@@ -2,16 +2,19 @@ import prisma from '../config/db.js';
 
 function handlePrismaError(error) {
   switch (error.code) {
-    case 'P2025':
+    case 'P2025': {
       const userNotFoundError = new Error('User not found');
       userNotFoundError.status = 404;
       throw userNotFoundError;
-    case 'P2002':
+    }
+    case 'P2002': {
       const emailConflictError = new Error('Email has already been used');
       emailConflictError.status = 409; // Conflict
       throw emailConflictError;
-    default:
+    }
+    default: {
       throw error;
+    }
   }
 }
 
@@ -29,13 +32,13 @@ export async function createUser(data) {
 
 export async function getUserById(id) {
   try {
-    const foundUser = await prisma.user.findUnique({
+    const foundUser = await prisma.user.findUniqueOrThrow({
       where: { id },
       omit: { password: true },
     });
     return foundUser;
   } catch (error) {
-    handlePrismaError(error.code);
+    handlePrismaError(error);
   }
 }
 export async function getUserByEmail(email) {
@@ -45,7 +48,7 @@ export async function getUserByEmail(email) {
     });
     return foundUser;
   } catch (error) {
-    handlePrismaError(error.code);
+    handlePrismaError(error);
   }
 }
 export async function getAllUsers() {

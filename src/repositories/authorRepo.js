@@ -2,12 +2,14 @@ import prisma from '../config/db.js';
 
 function handlePrismaError(error) {
   switch (error.code) {
-    case 'P2025':
+    case 'P2025': {
       const authorNotFoundError = new Error('Author not found');
       authorNotFoundError.status = 404;
       throw authorNotFoundError;
-    default:
+    }
+    default: {
       throw error;
+    }
   }
 }
 
@@ -21,7 +23,10 @@ export async function createAuthor(data) {
 }
 export async function getAuthorById(id) {
   try {
-    const foundAuthor = await prisma.author.findUnique({ where: { id } });
+    const foundAuthor = await prisma.author.findUniqueOrThrow({
+      where: { id },
+    });
+
     return foundAuthor;
   } catch (error) {
     handlePrismaError(error);

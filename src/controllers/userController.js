@@ -7,7 +7,7 @@ export async function getUserHandler(req, res) {
   res.status(200).json(user);
 }
 export async function getUserByIdHandler(req, res) {
-  const { id } = req.params;
+  const id = parseInt(req.params.id);
   const user = await service.getUserById(id);
   res.status(200).json(user);
 }
@@ -25,13 +25,13 @@ export async function getAllUsersHandler(req, res) {
   res.status(200).json(users);
 }
 export async function updateUserRoleHandler(req, res) {
-  const { id } = req.params;
+  const id = parseInt(req.params.id);
   const { role } = req.body;
   const updatedUser = await service.updateUserRole(id, role);
   res.status(200).json(updatedUser);
 }
 export async function deleteUserHandler(req, res) {
-  const { id } = req.params;
+  const id = parseInt(req.params.id);
   await service.deleteUser(id);
   res.status(204);
 }
