@@ -9,14 +9,15 @@ export async function getBookByIdHandler(req, res) {
   res.status(200).json(review);
 }
 export async function createBookHandler(req, res) {
-  const { rating, content, bookId } = req.body;
-  const { id } = req.user;
-  const createdBook = await service.createBook({
-    rating,
-    content,
-    userId: id,
-    bookId,
-  });
+  const { name, authorId, published, price } = req.body;
+  const data = {
+    name,
+    authorId,
+    published: new Date(published).toISOString(),
+    price,
+  };
+
+  const createdBook = await service.createBook(data);
   res.status(201).json(createdBook);
 }
 export async function updateBookHandler(req, res) {
