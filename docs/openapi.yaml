@@ -23,6 +23,180 @@ tags:
     description: Operations related to authors
 
 paths:
+  /books/{id}:
+    parameters:
+      - $ref: '#/components/parameters/ResourceId'
+    delete:
+      security:
+        - bearerAuth: []
+      tags:
+        - Books
+      summary: Delete Book by Id
+      description: Deletes a book in the database by it's Id.
+      responses:
+        '204':
+          description: Success Case
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    put:
+      security:
+        - bearerAuth: []
+      tags:
+        - Books
+      summary: Update Book by Id
+      description: Updates a book in the database by it's Id.
+      requestBody:
+        required: true
+        description: Required Data
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Book'
+      responses:
+        '201':
+          $ref: '#/components/responses/BookSuccessCase'
+        '400':
+          $ref: '#/components/responses/BadBookData'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    get:
+      tags:
+        - Books
+      summary: Get Book by Id
+      description: Gets a book in the database by it's Id.
+      responses:
+        '200':
+          $ref: '#/components/responses/BookSuccessCase'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+  /books/:
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - Books
+      summary: Create Book
+      description: Creates a book in the database
+      requestBody:
+        required: true
+        description: Data required
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Book'
+      responses:
+        '201':
+          $ref: '#/components/responses/BookSuccessCase'
+        '400':
+          $ref: '#/components/responses/BadBookData'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    get:
+      tags:
+        - Books
+      summary: Get all books
+      description: Gets all books in the database.
+      responses:
+        '200':
+          $ref: '#/components/responses/BookSuccessCase'
+  /reviews/{id}:
+    parameters:
+      - $ref: '#/components/parameters/ResourceId'
+    delete:
+      security:
+        - bearerAuth: []
+      tags:
+        - Reviews
+      summary: Delete Review by id
+      description: Deletes a review from the database by it's id
+      responses:
+        '204':
+          description: Success Case
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    get:
+      tags:
+        - Reivews
+      summary: Get Review by Id
+      description: Gets a review in the database by id
+      responses:
+        '200':
+          $ref: '#/components/responses/ReviewSuccessCase'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
+    put:
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Review'
+      summary: Update Review
+      tags:
+        - Reviews
+      description: Update a review in the database
+      responses:
+        '200':
+          $ref: '#/components/responses/ReviewSuccessCase'
+        '400':
+          $ref: '#/components/responses/BadReviewData'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /reviews/:
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - Reviews
+      summary: Create Review
+      description: Creates a review in the database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Review'
+      responses:
+        '200':
+          $ref: '#/components/responses/ReviewSuccessCase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '400':
+          $ref: '#/components/responses/BadReviewData'
+
+    get:
+      summary: Get All Reviews
+      tags:
+        - Reviews
+      description: Get all reviews in the database.
+      responses:
+        '200':
+          $ref: '#/components/responses/ReviewSuccessCase'
   /authors/{id}/books:
     parameters:
       - $ref: '#/components/parameters/ResourceId'
@@ -147,8 +321,6 @@ paths:
               schema:
                 type: array
                 $ref: '#/components/schemas/Author'
-
-  # -------------------- BEGIN /api/users/:id --------------------
   /users/{id}:
     delete:
       security:
@@ -215,8 +387,6 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-  # -------------------- END /api/users/:id --------------------
-  # -------------------- BEGIN /api/users/me --------------------
   /users/me:
     put:
       security:
@@ -236,7 +406,7 @@ paths:
         '200':
           $ref: '#/components/responses/UserSuccessCase'
         '400':
-          $ref: '#/components/responses/BadUpdateInformation'
+          $ref: '#/components/responses/BadUserUpdateInformation'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '404':
@@ -255,8 +425,6 @@ paths:
           $ref: '#/components/responses/UserSuccessCase'
         '404':
           $ref: '#/components/responses/NotFound'
-  # -------------------- END /api/users/me --------------------
-  # -------------------- BEGIN /api/users/ --------------------
   /users/:
     get:
       security:
@@ -278,8 +446,6 @@ paths:
 
         '403':
           $ref: '#/components/responses/Forbidden'
-  # -------------------- END /api/users/ --------------------
-  # -------------------- BEGIN /api/auth/login --------------------
   /auth/login:
     post:
       tags:
@@ -319,8 +485,6 @@ paths:
                     type: string
                 example:
                   error: 'Invalid credentials'
-  # -------------------- END /api/auth/login --------------------
-  # -------------------- BEGIN /api/auth/signup --------------------
   /auth/signup:
     post:
       tags:
@@ -358,8 +522,6 @@ paths:
                 $ref: '#/components/schemas/User'
         '409':
           $ref: '#/components/responses/EmailConflict'
-  # -------------------- END /api/auth/signup --------------------
-  # -------------------- BEGIN /api/health/ --------------------
   /health:
     get:
       summary: Health Check
@@ -377,7 +539,7 @@ paths:
                   status:
                     type: string
                     example: ok
-  # -------------------- END /api/health/ --------------------
+
 components:
   parameters:
     ResourceId:
@@ -479,8 +641,47 @@ components:
   # -------------------- END SCHEMA COMPONENTS --------------------
   responses:
     # -------------------- BEGIN RESPONSE COMPONENTS --------------------
+    BadBookData:
+      description: Invalid book data.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: array
+            example:
+              error:
+                - AuthorId must be provided
+                - Name must be provided
+                - Date must be provided
+                - Price must be provided
+                - Price must be a positive number
+                - AuthorId must be a positive number
+                - Name must be at least 4 characters
+    BookSuccessCase:
+      description: Success Case
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '#/components/schemas/Book'
+    BadReviewData:
+      description: Invalid Review data.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: array
+            example:
+              error:
+                - Rating must be between 1 and 5.
+                - Book Must be valid.
+                - Content must be at least 3 characters.
     BadAuthorData:
-      description: Bad Author data.
+      description: Invalid Author data.
       content:
         application/json:
           schema:
@@ -490,6 +691,13 @@ components:
                 type: string
             example:
               error: Name must be at least 4+ characters
+    ReviewSuccessCase:
+      description: Success Case
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '#/components/schemas/Review'
     AuthorSuccessCase:
       description: Success Case
       content:
@@ -529,7 +737,7 @@ components:
             example:
               errors:
                 - ID must be a postive integer
-    BadUpdateInformation:
+    BadUserUpdateInformation:
       description: Bad Request due to invalid data
       content:
         application/json:
