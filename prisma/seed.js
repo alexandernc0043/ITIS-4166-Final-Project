@@ -45,37 +45,37 @@ try {
     {
       name: 'The Very Hungry Caterpillar',
       price: 9.99,
-      published: '2026-03-29',
+      published: new Date(new Date('2026-03-29').toISOString()).toISOString(),
       authorId: Math.floor(Math.random() * 4) + 1,
     },
     {
       name: 'Booky Book',
       price: 19.99,
-      published: '2026-03-29',
+      published: new Date('2026-03-29').toISOString(),
       authorId: Math.floor(Math.random() * 4) + 1,
     },
     {
       name: 'Booky Book 2',
       price: 19.99,
-      published: '2026-03-29',
+      published: new Date('2026-03-29').toISOString(),
       authorId: Math.floor(Math.random() * 4) + 1,
     },
     {
       name: 'Book the Book',
       price: 19.99,
-      published: '2026-03-29',
+      published: new Date('2026-03-29').toISOString(),
       authorId: Math.floor(Math.random() * 4) + 1,
     },
     {
       name: 'Book the Book 2',
       price: 19.99,
-      published: '2026-03-29',
+      published: new Date('2026-03-29').toISOString(),
       authorId: Math.floor(Math.random() * 4) + 1,
     },
     {
       name: 'Book the Book 3',
       price: 19.99,
-      published: '2026-03-29',
+      published: new Date('2026-03-29').toISOString(),
       authorId: Math.floor(Math.random() * 4) + 1,
     },
   ];
