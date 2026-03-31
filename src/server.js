@@ -27,6 +27,9 @@ app.use('/api/authors', authorRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/auth', authRoutes);
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 
 app.use((req, res, next) => {
   const err = new Error('Route Not Found');
