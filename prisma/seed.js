@@ -39,7 +39,7 @@ try {
     { name: 'Jane Doe' },
     { name: 'Bob Smith' },
   ];
-  await prisma.author.createMany(authorData);
+  await prisma.author.createMany({ data: authorData });
 
   const bookData = [
     {
@@ -79,7 +79,7 @@ try {
       authorId: Math.floor(Math.random() * 4) + 1,
     },
   ];
-  await prisma.book.createMany(bookData);
+  await prisma.book.createMany({ data: bookData });
 
   const reviewData = [
     {
@@ -118,7 +118,7 @@ try {
       bookId: Math.floor(Math.random() * 4) + 1,
     },
   ];
-  await prisma.review.createMany(reviewData);
+  await prisma.review.createMany({ data: reviewData });
 
   // users.forEach(async (user) => {
   //   await prisma.review.createMany({
