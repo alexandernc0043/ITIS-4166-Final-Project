@@ -6,8 +6,8 @@ info:
 servers:
   - url: http://localhost:8080/api
     description: Local Development Server
-  # - url: example.com
-  #   description: Production Server
+  - url: https://itis-4166-final-project.onrender.com/api
+    description: Production Server
 tags:
   - name: Monitoring
     description: API Monitoring endpoints
