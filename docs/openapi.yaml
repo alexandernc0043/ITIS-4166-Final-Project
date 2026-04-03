@@ -70,7 +70,6 @@ paths:
                       rating: 5
                       bookId: 1
                       userId: 1
-
   /books/{id}:
     parameters:
       - $ref: '#/components/parameters/ResourceId'
@@ -90,6 +89,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
     put:
       security:
         - bearerAuth: []
@@ -106,7 +107,7 @@ paths:
               type: object
               $ref: '#/components/schemas/Book'
       responses:
-        '201':
+        '200':
           $ref: '#/components/responses/BookSuccessCase'
         '400':
           $ref: '#/components/responses/BadBookData'
@@ -158,7 +159,7 @@ paths:
       description: Gets all books in the database.
       responses:
         '200':
-          $ref: '#/components/responses/BookSuccessCase'
+          $ref: '#/components/responses/BookListSuccessCase'
   /reviews/{id}:
     parameters:
       - $ref: '#/components/parameters/ResourceId'
@@ -182,7 +183,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
     get:
       tags:
-        - Reivews
+        - Reviews
       summary: Get Review by Id
       description: Gets a review in the database by id
       responses:
@@ -196,6 +197,7 @@ paths:
       security:
         - bearerAuth: []
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -230,13 +232,14 @@ paths:
               type: object
               $ref: '#/components/schemas/Review'
       responses:
-        '200':
+        '201':
           $ref: '#/components/responses/ReviewSuccessCase'
         '401':
           $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '400':
           $ref: '#/components/responses/BadReviewData'
-
     get:
       summary: Get All Reviews
       tags:
@@ -244,8 +247,9 @@ paths:
       description: Get all reviews in the database.
       responses:
         '200':
-          $ref: '#/components/responses/ReviewSuccessCase'
+          $ref: '#/components/responses/ReviewListSuccessCase'
   /authors/{id}/books:
+    description: Gets all books by an author by their id.
     parameters:
       - $ref: '#/components/parameters/ResourceId'
     get:
@@ -279,8 +283,7 @@ paths:
         '400':
           $ref: '#/components/responses/BadResourceId'
         '404':
-          $ref: '#/components/responses/NotFound'
-      deprecated: false
+          $ref: '#/components/responses/NotFound'    
   /authors/{id}:
     parameters:
       - $ref: '#/components/parameters/ResourceId'
@@ -292,6 +295,7 @@ paths:
       summary: Update Author By Id
       description: Updates an author by id.
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -349,7 +353,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
         '404':
-          $ref: '#/compoents/responses/NotFound'
+          $ref: '#/components/responses/NotFound'
   /authors/:
     post:
       security:
@@ -367,6 +371,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -384,9 +389,12 @@ paths:
             application/json:
               schema:
                 type: array
-                $ref: '#/components/schemas/Author'
+                items:
+                  $ref: '#/components/schemas/Author'
   /users/{id}:
     delete:
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
       security:
         - bearerAuth: []
       summary: Delete User
@@ -402,8 +410,6 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-
-      deprecated: false
     patch:
       security:
         - bearerAuth: []
@@ -414,6 +420,7 @@ paths:
       summary: Update User Role
       description: Update a user's role in the database
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -432,7 +439,6 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-
     get:
       summary: Get User By Id
       description: Gets a user in the database by Id
@@ -458,6 +464,7 @@ paths:
       tags:
         - Users
       requestBody:
+        required: true
         description: New User Details
         content:
           application/json:
@@ -556,7 +563,7 @@ paths:
       summary: Create an Account
       description: Creates a user and returns the information about them
       requestBody:
-        description: User login credentials
+        description: User information for sign up.
         required: true
         content:
           application/json:
@@ -627,6 +634,7 @@ components:
           type: string
           example: 'Alex Prechtel'
           readOnly: false
+          minLength: 4
     AuthCredentials:
       type: object
       properties:
@@ -647,9 +655,11 @@ components:
         name:
           type: string
           example: 'The Very Hungry Caterpillar'
+          minLength: 4
         price:
           type: number
           example: 9.99
+          minimum: 0
         published:
           type: string
           example: '2026-03-29'
@@ -671,6 +681,9 @@ components:
           type: string
           readOnly: true
           example: USER
+          enum:
+            - USER
+            - ADMIN
         createdAt:
           type: string
           readOnly: true
@@ -686,6 +699,7 @@ components:
           type: string
           example: 'This was a really good book!'
           readOnly: false
+          minLength: 3
         createdAt:
           type: string
           readOnly: true
@@ -694,6 +708,8 @@ components:
           type: number
           readOnly: false
           example: 5
+          minimum: 1
+          maximum: 5
         bookId:
           type: number
           readOnly: false
@@ -723,6 +739,22 @@ components:
                 - Price must be a positive number
                 - AuthorId must be a positive number
                 - Name must be at least 4 characters
+    BookListSuccessCase:
+      description: Success Case
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Book'
+    ReviewListSuccessCase:
+      description: Success Case
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Review'
     BookSuccessCase:
       description: Success Case
       content:
@@ -800,7 +832,7 @@ components:
                   type: string
             example:
               errors:
-                - ID must be a postive integer
+                - ID must be a positive integer
     BadUserUpdateInformation:
       description: Bad Request due to invalid data
       content:
@@ -816,7 +848,7 @@ components:
               errors:
                 - 'Email or password is required'
                 - 'Password must contain at least 8 characters and at most 64 characters'
-                - 'Email must be vaild'
+                - 'Email must be valid'
     InvalidUserInput:
       description: Bad Request due to invalid data
       content:
