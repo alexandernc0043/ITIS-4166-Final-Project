@@ -53,7 +53,10 @@ export async function deleteBook(id) {
 }
 export async function getBookReviews(id) {
   try {
-    const reviews = await prisma.review.findMany({ where: { bookId: id } });
+    const reviews = await prisma.book.findMany({
+      where: { id },
+      include: { reviews: true },
+    });
     return reviews;
   } catch (error) {
     handlePrismaError(error);

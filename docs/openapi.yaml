@@ -4,10 +4,12 @@ info:
   version: 1.0.0
   description: API documentation for bookstore management
 servers:
-  - url: http://localhost:8080/api
-    description: Local Development Server
   - url: https://itis-4166-final-project.onrender.com/api
     description: Production Server
+  - url: http://localhost:8080/api
+    description: Local Development Server
+  - url: https://bookstore-api.aprechtel.com
+    description: Production Server 2
 tags:
   - name: Monitoring
     description: API Monitoring endpoints
@@ -41,8 +43,34 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                $ref: '#/components/schemas/review'
+                type: object
+                properties:
+                  id:
+                    type: number
+                  name:
+                    type: string
+                  price:
+                    type: number
+                  published:
+                    type: string
+                  authorId:
+                    type: number
+                  reviews:
+                    type: array
+                example:
+                  id: 1
+                  name: 'Book Name'
+                  price: 1.99
+                  published: '2026-03-09T00:00:00:000Z'
+                  authorId: 1
+                  reviews:
+                    - id: 1
+                      content: 'Review Content'
+                      createdAt: '2026-03-09T00:00:00:000Z'
+                      rating: 5
+                      bookId: 1
+                      userId: 1
+
   /books/{id}:
     parameters:
       - $ref: '#/components/parameters/ResourceId'
@@ -230,8 +258,24 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                $ref: '#/components/schemas/Book'
+                type: object
+                properties:
+                  id:
+                    type: number
+                  name:
+                    type: string
+                  books:
+                    type: array
+                example:
+                  id: 1
+                  name: Alex Prechtel
+                  books:
+                    - id: 1
+                      name: 'The Very Hungry Caterpillar'
+                      price: 9.99
+                      published: '2026-03-29'
+                      authorId: 1
+
         '400':
           $ref: '#/components/responses/BadResourceId'
         '404':

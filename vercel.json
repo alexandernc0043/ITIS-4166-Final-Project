@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "npm install && npm run migrate:deploy && npx prisma generate && npm run seed:prod",
+  "functions": {
+    "src/server.js": {
+      "includeFiles": "{docs/openapi.yaml,node_modules/swagger-ui-dist/**}"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/server.js"
+    }
+  ]
+}

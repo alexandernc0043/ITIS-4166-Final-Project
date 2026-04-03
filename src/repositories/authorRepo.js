@@ -8,6 +8,7 @@ function handlePrismaError(error) {
       throw authorNotFoundError;
     }
     default: {
+      console.error('Error code: ', error.code);
       throw error;
     }
   }
@@ -38,8 +39,12 @@ export async function getAllAuthors() {
 }
 export async function getAuthorBooks(id) {
   try {
-    const books = prisma.book.findMany({ where: { authorId: id } });
-    return books;
+    const authorWithBooks = prisma.author.findUniqueOrThrow({
+      where: { id },
+      include: { books: true },
+    });
+    // const books = prisma.book.findMany({ where: { authorId: id } });
+    return authorWithBooks;
   } catch (error) {
     handlePrismaError(error);
   }
