@@ -2,13 +2,13 @@ openapi: 3.0.3
 info:
   title: Bookstore Management API
   version: 1.0.0
-  description: API documentation for bookstore management
+  description: API documentation for bookstore management<br><br>There are two production servers, one hosted on Render for ITIS4166, and another on Vercel using my owned domain. <br><br>Both Production servers use different databases.
 servers:
   - url: https://itis-4166-final-project.onrender.com/api
     description: Production Server
   - url: http://localhost:8080/api
     description: Local Development Server
-  - url: https://bookstore-api.aprechtel.com
+  - url: https://bookstore-api.aprechtel.com/api
     description: Production Server 2
 tags:
   - name: Monitoring
@@ -283,7 +283,7 @@ paths:
         '400':
           $ref: '#/components/responses/BadResourceId'
         '404':
-          $ref: '#/components/responses/NotFound'    
+          $ref: '#/components/responses/NotFound'
   /authors/{id}:
     parameters:
       - $ref: '#/components/parameters/ResourceId'
