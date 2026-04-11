@@ -18,7 +18,7 @@ try {
   const users = [];
   const userCount = await prisma.user.count();
   if (userCount === 0) {
-    usersData.forEach(async (userData) => {
+    for (const userData of usersData) {
       const hashedPassword = await bcrypt.hash(userData.password, 10);
       const user = await prisma.user.create({
         data: {
@@ -28,7 +28,10 @@ try {
         },
       });
       users.push(user);
-    });
+      console.log(
+        `[SEED] User (${userData.email}) (${userData.role || 'USER'}) created`,
+      );
+    }
   } else {
     console.log('[SEED] Users found in database skipping');
   }
@@ -40,7 +43,7 @@ try {
     { name: 'Bob Smith' },
   ];
   await prisma.author.createMany({ data: authorData });
-
+  console.log('[SEED] Authors Created.');
   const bookData = [
     {
       name: 'The Very Hungry Caterpillar',
@@ -80,6 +83,7 @@ try {
     },
   ];
   await prisma.book.createMany({ data: bookData });
+  console.log('[SEED] Books Created.');
 
   const reviewData = [
     {
@@ -119,12 +123,7 @@ try {
     },
   ];
   await prisma.review.createMany({ data: reviewData });
-
-  // users.forEach(async (user) => {
-  //   await prisma.review.createMany({
-  //     data: [{ userId: user.id }],
-  //   });
-  // });
+  console.log('[SEED] Reviews Created.');
 } catch (e) {
   console.error('seed failed: ', e);
 }

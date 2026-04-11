@@ -69,4 +69,12 @@ router.patch(
   handler.updateUserRoleHandler,
 );
 
+router.delete(
+  '/:id',
+  authenticateUser,
+  authorizeRoles('ADMIN'),
+  validateId,
+  handler.deleteUserHandler,
+);
+
 export default router;

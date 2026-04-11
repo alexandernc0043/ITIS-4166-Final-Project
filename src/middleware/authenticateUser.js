@@ -20,9 +20,7 @@ export default function authenticateUser(req, res, next) {
     req.user = { id: payload.id, role: payload.role };
     next();
   } catch (error) {
-    if (error.name == 'TokenExpiredError') {
-      throw err;
-    }
+    throw err;
     return next(error);
   }
 }

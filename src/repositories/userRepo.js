@@ -58,7 +58,6 @@ export async function getAllUsers() {
 
 /**
  * Updates a user in the database
- * @param {string name, string email, string password, string? role } data
  */
 export async function updateUser(id, data) {
   try {
