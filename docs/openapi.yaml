@@ -389,7 +389,7 @@ paths:
       description: Deletes an author in the database by their id.
       responses:
         '204':
-          description: Sucessfully deleted Author
+          description: Successfully deleted Author
         '400':
           $ref: '#/components/responses/BadResourceId'
         '401':
