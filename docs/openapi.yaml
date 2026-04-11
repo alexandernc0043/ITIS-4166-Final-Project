@@ -141,6 +141,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
     delete:
       security:
         - bearerAuth: []
@@ -206,6 +208,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '400':
           $ref: '#/components/responses/BadResourceId'
+
     put:
       security:
         - bearerAuth: []
@@ -229,6 +232,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
 
     delete:
       security:
@@ -255,6 +260,7 @@ paths:
       tags:
         - Authors
       summary: Create Author
+      description: Create an author in the database.
       responses:
         '201':
           $ref: '#/components/responses/AuthorSuccessCase'
@@ -286,10 +292,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/Author'
   /authors/{id}/books:
-    description: Gets all books by an author by their id.
     parameters:
       - $ref: '#/components/parameters/ResourceId'
     get:
+      description: Gets all books by an author by their id.
       summary: Get Author's Books
       tags:
         - Authors
@@ -380,6 +386,7 @@ paths:
       tags:
         - Authors
       summary: Delete Author by Id
+      description: Deletes an author in the database by their id.
       responses:
         '204':
           description: Sucessfully deleted Author
@@ -428,6 +435,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/UserSuccessCase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
   /users/:
@@ -437,6 +446,7 @@ paths:
       tags:
         - Users
       summary: Get All Users
+      description: Gets all users in the database.
       responses:
         '200':
           description: Success Case
@@ -464,6 +474,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/UserSuccessCase'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -495,6 +507,8 @@ paths:
           $ref: '#/components/responses/UserSuccessCase'
         '401':
           $ref: '#/components/responses/Unauthorized'
+        '400':
+          $ref: '#/components/responses/BadResourceId'
         '403':
           $ref: '#/components/responses/Forbidden'
         '404':
@@ -739,8 +753,8 @@ components:
                 - Price must be provided
                 - Price must be at least 1.00.
                 - AuthorId must be provided
-                - Author Id must be a postive number
-                - Published must be provied
+                - Author Id must be a positive number
+                - Published must be provided
                 - Published must be a date
     BookListSuccessCase:
       description: Success Case

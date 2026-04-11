@@ -2,7 +2,7 @@ import * as service from '../services/authorService.js';
 export async function deleteAuthorController(req, res) {
   const id = parseInt(req.params.id);
   await service.deleteAuthor(id);
-  res.status(204);
+  res.status(204).send();
 }
 export async function updateAuthorHandler(req, res) {
   const id = parseInt(req.params.id);

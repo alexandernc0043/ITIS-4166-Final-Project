@@ -33,7 +33,7 @@ export async function updateBookHandler(req, res) {
 export async function deleteBookHandler(req, res) {
   const id = parseInt(req.params.id);
   await service.deleteBook(id);
-  res.status(204);
+  res.status(204).send();
 }
 export async function getBookReviewsHandler(req, res) {
   const id = parseInt(req.params.id);

@@ -32,5 +32,5 @@ export async function updateReviewHandler(req, res) {
 export async function deleteReviewHandler(req, res) {
   const id = parseInt(req.params.id);
   await service.deleteReview(id);
-  res.status(204);
+  res.status(204).send();
 }

@@ -33,5 +33,5 @@ export async function updateUserRoleHandler(req, res) {
 export async function deleteUserHandler(req, res) {
   const id = parseInt(req.params.id);
   await service.deleteUser(id);
-  res.status(204);
+  res.status(204).send();
 }
