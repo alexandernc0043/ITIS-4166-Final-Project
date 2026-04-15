@@ -39,7 +39,7 @@ export async function getAllAuthors() {
 }
 export async function getAuthorBooks(id) {
   try {
-    const authorWithBooks = prisma.author.findUniqueOrThrow({
+    const authorWithBooks = await prisma.author.findUniqueOrThrow({
       where: { id },
       include: { books: true },
     });
