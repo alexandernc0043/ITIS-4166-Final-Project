@@ -41,10 +41,10 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log(err.stack);
   if (!err.status) {
     err.status = 500;
     err.message = 'Internal Server Error';
+    console.log(err.stack);
   }
   res.status(err.status).json({ error: err.message });
 });

@@ -15,30 +15,36 @@ export const validateCreateBook = [
     .exists({ values: 'falsy' })
     .withMessage('Price must be provided')
 
-    .isDecimal({ min: 1 })
+    .isFloat({ min: 1 })
     .withMessage('Price must be at least 1.00.'),
   body('authorId')
     .exists({ values: 'falsy' })
     .withMessage('AuthorId must be provided')
 
     .isInt({ min: 1 })
-    .withMessage('Author Id must be a postive number'),
+    .withMessage('Author Id must be a positive number'),
 
   body('published')
     .exists({ values: 'falsy' })
     .withMessage('Published must be provied')
 
-    .isDate()
-    .withMessage('Published must be a date'),
+    .isISO8601()
+    .withMessage('Published must be in ISO8601 format'),
   handleValidationErrors,
 ];
 export const validateUpdateBook = [
-  oneOf([
-    body('name').exists({ values: 'falsy' }),
-    body('price').exists({ values: 'falsy' }),
-    body('authorId').exists({ values: 'falsy' }),
-    body('published').exists({ values: 'falsy' }),
-  ]),
+  oneOf(
+    [
+      body('name').exists({ values: 'falsy' }),
+      body('price').exists({ values: 'falsy' }),
+      body('authorId').exists({ values: 'falsy' }),
+      body('published').exists({ values: 'falsy' }),
+    ],
+    {
+      message:
+        'At least one of name, price, authorId, or published is required.',
+    },
+  ),
   body('name')
     .optional()
     .trim()
@@ -49,13 +55,16 @@ export const validateUpdateBook = [
     .withMessage('Name must be at least 4 characters.'),
   body('price')
     .optional()
-    .isDecimal({ min: 1 })
+    .isFloat({ min: 1 })
     .withMessage('Price must be at least 1.00.'),
   body('authorId')
     .optional()
     .isInt({ min: 1 })
-    .withMessage('Author Id must be a postive number'),
+    .withMessage('Author Id must be a positive number'),
 
-  body('published').optional().isDate().withMessage('Published must be a date'),
+  body('published')
+    .optional()
+    .isISO8601()
+    .withMessage('Published must be in ISO8601 format'),
   handleValidationErrors,
 ];

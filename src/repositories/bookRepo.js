@@ -18,7 +18,7 @@ function handlePrismaError(error) {
 }
 export async function getBookById(id) {
   try {
-    const book = await prisma.book.findUniqueOrThrow({ where: id });
+    const book = await prisma.book.findUniqueOrThrow({ where: { id } });
     return book;
   } catch (error) {
     handlePrismaError(error);
@@ -46,7 +46,7 @@ export async function updateBook(id, data) {
 }
 export async function deleteBook(id) {
   try {
-    await prisma.book.delete({ where: id });
+    await prisma.book.delete({ where: { id } });
   } catch (error) {
     handlePrismaError(error);
   }

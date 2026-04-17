@@ -1,13 +1,16 @@
 import * as service from '../services/bookService.js';
+
 export async function getAllBookHandler(req, res) {
-  const reviews = await service.getAllBooks();
-  res.status(200).json(reviews);
+  const books = await service.getAllBooks();
+  res.status(200).json(books);
 }
+
 export async function getBookByIdHandler(req, res) {
   const id = parseInt(req.params.id);
-  const review = await service.getBookById(id);
-  res.status(200).json(review);
+  const book = await service.getBookById(id);
+  res.status(200).json(book);
 }
+
 export async function createBookHandler(req, res) {
   const { name, authorId, published, price } = req.body;
   const data = {
@@ -21,12 +24,14 @@ export async function createBookHandler(req, res) {
   res.status(201).json(createdBook);
 }
 export async function updateBookHandler(req, res) {
-  const { published, name, authorId } = req.body;
-  const { id } = req.user;
+  const id = parseInt(req.params.id);
+  const { published, name, authorId, price } = req.body;
+
   const updatedBook = await service.updateBook(id, {
-    published,
+    published: new Date(published).toISOString(),
     name,
     authorId,
+    price,
   });
   res.status(200).json(updatedBook);
 }

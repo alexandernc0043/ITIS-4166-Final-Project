@@ -113,7 +113,7 @@ Provide credentials that don't match any existing account.
 
 ---
 
-## User Endpoints
+<!-- ## User Endpoints
 
 ### PUT `/users/me`
 **Description:** Update the authenticated user.  
@@ -227,7 +227,7 @@ Log in as a regular user to get their token, then use an admin account to delete
 
 ### GET `/users/`
 **Description:** Gets all users in the database.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 200 — Ok
 Provide a valid access token for an admin account.
@@ -268,7 +268,7 @@ Provide an access token for a non-admin user.
 
 ### GET `/users/{id}`
 **Description:** Gets a user by their ID.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 200 — Ok
 Provide a valid admin access token and a valid user ID (e.g. `1`).
@@ -327,7 +327,7 @@ Provide an ID that does not correspond to any existing user (e.g. `999`).
 
 ### PATCH `/users/{id}`
 **Description:** Update a user's role.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 200 — Ok
 Provide a valid admin access token, a valid user ID, and a valid role (`USER` or `ADMIN`).
@@ -393,7 +393,7 @@ Provide an ID that does not correspond to any existing user (e.g. `999`).
 
 ### DELETE `/users/{id}`
 **Description:** Deletes a user by their ID.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 204 — No Content
 Provide a valid admin access token and a valid user ID.
@@ -428,13 +428,13 @@ Provide an ID that does not correspond to any existing user (e.g. `999`).
 }
 ```
 
----
+--- -->
 
 ## Author Endpoints
 
 ### POST `/authors/`
 **Description:** Create an author in the database.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 201 — Created
 Provide a valid admin access token and a name of at least 4 characters.
@@ -547,7 +547,7 @@ Provide an ID that does not correspond to any existing author (e.g. `999`).
 
 ### PUT `/authors/{id}`
 **Description:** Update an author by ID.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 200 — Ok
 Provide a valid admin access token, a valid author ID, and a name of at least 4 characters.
@@ -585,7 +585,7 @@ Provide an ID that does not correspond to any existing author (e.g. `999`).
 
 ### DELETE `/authors/{id}`
 **Description:** Delete an author by ID.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 204 — No Content
 Provide a valid admin access token and a valid author ID.
@@ -608,7 +608,7 @@ Provide an ID that does not correspond to any existing author (e.g. `999`).
 
 ### POST `/books/`
 **Description:** Creates a book.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 201 — Created
 Provide a valid admin access token and all required fields.
@@ -733,7 +733,7 @@ Provide an ID that does not correspond to any existing book (e.g. `999`).
 
 ### PUT `/books/{id}`
 **Description:** Update a book by ID.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 200 — Ok
 Provide a valid admin access token, a valid book ID, and valid update data.
@@ -761,7 +761,7 @@ Provide an ID that does not correspond to any existing book (e.g. `999`).
 
 ### DELETE `/books/{id}`
 **Description:** Delete a book by ID.  
-**Access:** Admin User
+**Access:** Admin User (`admin@admin.com`  | `adminpassword`)
 
 #### 204 — No Content
 Provide a valid admin access token and a valid book ID.

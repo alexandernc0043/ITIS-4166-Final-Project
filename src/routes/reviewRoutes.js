@@ -36,12 +36,14 @@ router.post('/', authenticateUser, handler.createReviewHandler); // TODO: VALIDA
 router.put(
   '/:id',
   authenticateUser,
+  validateId,
   authorizeOwnership,
   handler.updateReviewHandler,
 );
 router.delete(
   '/:id',
   authenticateUser,
+  validateId,
   authorizeOwnership,
   handler.deleteReviewHandler,
 );
