@@ -76,7 +76,9 @@ export async function updateUserRole(id, role) {
     const updatedUser = await prisma.user.update({
       where: {
         id: id,
-        role: role,
+      },
+      data: {
+        role,
       },
       omit: {
         password: true,
