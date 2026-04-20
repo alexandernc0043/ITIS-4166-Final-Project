@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1776540453154" clover="3.2.0">
+  <project timestamp="1776540453154" name="All files">
+    <metrics statements="422" coveredstatements="213" conditionals="3500" coveredconditionals="778" methods="1444" coveredmethods="506" elements="5366" coveredelements="1497" complexity="0" loc="422" ncloc="422" packages="9" files="33" classes="33"/>
+    <package name="src">
+      <metrics statements="31" coveredstatements="20" conditionals="10" coveredconditionals="5" methods="4" coveredmethods="1"/>
+      <file name="server.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/server.js">
+        <metrics statements="31" coveredstatements="20" conditionals="10" coveredconditionals="5" methods="4" coveredmethods="1"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="52" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="55" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.config">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="db.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/config/db.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.controllers">
+      <metrics statements="80" coveredstatements="18" conditionals="2" coveredconditionals="0" methods="25" coveredmethods="6"/>
+      <file name="authController.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/controllers/authController.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+      <file name="authorController.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/controllers/authorController.js">
+        <metrics statements="18" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+      <file name="bookController.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/controllers/bookController.js">
+        <metrics statements="19" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+      </file>
+      <file name="reviewController.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/controllers/reviewController.js">
+        <metrics statements="16" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+      </file>
+      <file name="userController.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/controllers/userController.js">
+        <metrics statements="21" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.generated.prisma">
+      <metrics statements="51" coveredstatements="51" conditionals="87" coveredconditionals="33" methods="102" coveredmethods="70"/>
+      <file name="client.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/generated/prisma/client.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="index.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/generated/prisma/index.js">
+        <metrics statements="46" coveredstatements="46" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="89" count="2" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="104" count="2" type="stmt"/>
+        <line num="109" count="2" type="stmt"/>
+        <line num="118" count="2" type="stmt"/>
+        <line num="126" count="2" type="stmt"/>
+        <line num="131" count="2" type="stmt"/>
+        <line num="135" count="2" type="stmt"/>
+        <line num="140" count="2" type="stmt"/>
+        <line num="149" count="2" type="stmt"/>
+        <line num="157" count="2" type="stmt"/>
+        <line num="158" count="2" type="stmt"/>
+        <line num="159" count="2" type="stmt"/>
+        <line num="163" count="2" type="stmt"/>
+        <line num="164" count="2" type="stmt"/>
+        <line num="166" count="2" type="stmt"/>
+        <line num="167" count="2" type="stmt"/>
+        <line num="168" count="2" type="stmt"/>
+        <line num="170" count="2" type="stmt"/>
+        <line num="175" count="2" type="stmt"/>
+        <line num="176" count="2" type="stmt"/>
+        <line num="177" count="2" type="stmt"/>
+      </file>
+      <file name="query_compiler_fast_bg.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/generated/prisma/query_compiler_fast_bg.js">
+        <metrics statements="2" coveredstatements="2" conditionals="87" coveredconditionals="33" methods="100" coveredmethods="68"/>
+        <line num="1" count="4279" type="cond" truecount="20" falsecount="39"/>
+        <line num="2" count="597" type="cond" truecount="13" falsecount="15"/>
+      </file>
+      <file name="query_compiler_fast_bg.wasm-base64.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/generated/prisma/query_compiler_fast_bg.wasm-base64.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.generated.prisma.runtime">
+      <metrics statements="22" coveredstatements="18" conditionals="3376" coveredconditionals="729" methods="1255" coveredmethods="410"/>
+      <file name="client.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/generated/prisma/runtime/client.js">
+        <metrics statements="22" coveredstatements="18" conditionals="3376" coveredconditionals="729" methods="1255" coveredmethods="410"/>
+        <line num="5" count="12000" type="cond" truecount="101" falsecount="182"/>
+        <line num="6" count="318" type="cond" truecount="58" falsecount="104"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="15" type="cond" truecount="27" falsecount="13"/>
+        <line num="11" count="3" type="cond" truecount="5" falsecount="34"/>
+        <line num="12" count="2" type="cond" truecount="0" falsecount="75"/>
+        <line num="13" count="12" type="cond" truecount="0" falsecount="136"/>
+        <line num="14" count="130" type="cond" truecount="75" falsecount="210"/>
+        <line num="15" count="7716" type="cond" truecount="275" falsecount="1094"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="0" falsecount="7"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="61" count="27" type="cond" truecount="86" falsecount="354"/>
+        <line num="62" count="11" type="cond" truecount="8" falsecount="104"/>
+        <line num="69" count="76" type="cond" truecount="53" falsecount="99"/>
+        <line num="70" count="2" type="cond" truecount="6" falsecount="88"/>
+        <line num="74" count="11" type="cond" truecount="24" falsecount="54"/>
+        <line num="79" count="11" type="cond" truecount="9" falsecount="73"/>
+        <line num="80" count="2" type="cond" truecount="2" falsecount="18"/>
+      </file>
+    </package>
+    <package name="src.middleware">
+      <metrics statements="38" coveredstatements="25" conditionals="10" coveredconditionals="6" methods="6" coveredmethods="5"/>
+      <file name="authenticateUser.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/middleware/authenticateUser.js">
+        <metrics statements="12" coveredstatements="9" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="authorValidator.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/middleware/authorValidator.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="authorizeOwnership.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/middleware/authorizeOwnership.js">
+        <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="authorizeRole.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/middleware/authorizeRole.js">
+        <metrics statements="6" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="2" count="20" type="stmt"/>
+        <line num="3" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+      </file>
+      <file name="bookValidator.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/middleware/bookValidator.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+      </file>
+      <file name="handleValidationErrors.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/middleware/handleValidationErrors.js">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="4" count="18" type="stmt"/>
+        <line num="5" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="10" count="13" type="stmt"/>
+      </file>
+      <file name="userValidators.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/middleware/userValidators.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.repositories">
+      <metrics statements="115" coveredstatements="28" conditionals="11" coveredconditionals="2" methods="28" coveredmethods="8"/>
+      <file name="authorRepo.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/repositories/authorRepo.js">
+        <metrics statements="28" coveredstatements="17" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="5"/>
+        <line num="4" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+      </file>
+      <file name="bookRepo.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/repositories/bookRepo.js">
+        <metrics statements="29" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="3" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+      </file>
+      <file name="reviewRepo.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/repositories/reviewRepo.js">
+        <metrics statements="25" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="3" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+      </file>
+      <file name="userRepo.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/repositories/userRepo.js">
+        <metrics statements="33" coveredstatements="11" conditionals="3" coveredconditionals="1" methods="8" coveredmethods="3"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="2"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.routes">
+      <metrics statements="30" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="authenticationRoutes.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/routes/authenticationRoutes.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+      </file>
+      <file name="authorRoutes.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/routes/authorRoutes.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+      </file>
+      <file name="bookRoutes.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/routes/bookRoutes.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+      </file>
+      <file name="reviewRoutes.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/routes/reviewRoutes.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+      </file>
+      <file name="userRoutes.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/routes/userRoutes.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services">
+      <metrics statements="53" coveredstatements="21" conditionals="4" coveredconditionals="3" methods="24" coveredmethods="6"/>
+      <file name="authService.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/services/authService.js">
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+      </file>
+      <file name="authorService.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/services/authorService.js">
+        <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+      <file name="bookService.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/services/bookService.js">
+        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="reviewService.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/services/reviewService.js">
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+      <file name="userService.js" path="/Users/alexanderp/University/senior/spring/ITIS4166/final-project/src/services/userService.js">
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
