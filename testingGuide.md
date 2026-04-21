@@ -2,15 +2,19 @@
 
 **Base URL (Production):** [https://itis-4166-final-project.onrender.com/api](https://itis-4166-final-project.onrender.com/api)  
 **Docs:** [https://itis-4166-final-project.onrender.com/api/docs/](https://itis-4166-final-project.onrender.com/api/docs/)
+**GitHub Repository** [https://github.com/alexandernc0043/ITIS-4166-Final-Project](https://github.com/alexandernc0043/ITIS-4166-Final-Project)
 
 ---
 
 ## Test Credentials
 
-| Email              | Password        | Role  |
-| ------------------ | --------------- | ----- |
-| `user@example.com` | `password123`   | USER  |
-| `admin@admin.com`  | `adminpassword` | ADMIN |
+| Email               | Password                      | Role  |
+| ------------------- | ----------------------------- | ----- |
+| `user@example.com`  | `password123`                 | USER  |
+| `admin@admin.com`   | `adminpassword`               | ADMIN |
+| `itis4166@uncc.edu` | `TESTING_GUIDE_PASSWORD_4166` | ADMIN |
+
+Use itis@4166 as a backup admin account.
 
 ---
 
@@ -920,12 +924,12 @@ Provide an invalid ID such as `-1`.
 Make the request without an access token.
 
 #### 403 — Forbidden
-Attempt to delete a review that does not belong to the authenticated user.
+Attempt to delete a review that does not belong to the authenticated user or user is not admin.
 
 #### 404 — Not Found
 Provide an ID that does not correspond to any existing review (e.g. `999`).
 
----
+<!-- ---
 
 ## Monitoring
 
@@ -940,4 +944,4 @@ Provide an ID that does not correspond to any existing review (e.g. `999`).
 {
   "status": "ok"
 }
-```
+``` -->
