@@ -1,11 +1,4 @@
 import jwt from 'jsonwebtoken';
-/**
- * Middleware to check user's authentication
- * Returns 401 if user didn't provide a validate token or Token is Expired
- * @param {Object} req - Express Request
- * @param {Object} res - Express Response
- * @param {Function} next - Express Next middleware function
- */
 
 export default function authenticateUser(req, res, next) {
   const authHeader = req.headers.authorization;
@@ -21,6 +14,5 @@ export default function authenticateUser(req, res, next) {
     next();
   } catch (error) {
     throw err;
-    return next(error);
   }
 }

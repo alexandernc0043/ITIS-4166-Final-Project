@@ -28,7 +28,7 @@ export async function updateBookHandler(req, res) {
   const { published, name, authorId, price } = req.body;
 
   const updatedBook = await service.updateBook(id, {
-    published: new Date(published).toISOString(),
+    published: published ? new Date(published).toISOString() : undefined,
     name,
     authorId,
     price,

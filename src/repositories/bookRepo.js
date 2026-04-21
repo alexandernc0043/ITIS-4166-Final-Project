@@ -53,7 +53,7 @@ export async function deleteBook(id) {
 }
 export async function getBookReviews(id) {
   try {
-    const reviews = await prisma.book.findMany({
+    const reviews = await prisma.book.findUniqueOrThrow({
       where: { id },
       include: { reviews: true },
     });
