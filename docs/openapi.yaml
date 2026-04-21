@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Bookstore Management API
   version: 1.0.0
-  description: API documentation for bookstore management<br><br>There are two production servers, one hosted on Render for ITIS4166, and another on Vercel using my owned domain. <br><br>Both Production servers use different databases.
+  description: API documentation for bookstore management<br><br>There are two production servers, one hosted on Render for ITIS4166, and another on Vercel using my owned domain. <br><br>Both Production servers use different databases. <br><h3><strong>The testing guide uses the Render Production Server</strong></h3>
 servers:
   - url: https://itis-4166-final-project.onrender.com/api
     description: Production (Render) Server
