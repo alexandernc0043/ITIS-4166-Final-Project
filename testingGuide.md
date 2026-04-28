@@ -259,7 +259,7 @@ Make the request without providing an access token.
 ```
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 **Response:**
 ```json
@@ -308,7 +308,7 @@ Make the request without providing an access token.
 ```
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 **Response:**
 ```json
@@ -374,7 +374,7 @@ Make the request without providing an access token.
 ```
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 **Response:**
 ```json
@@ -413,7 +413,7 @@ Make the request without providing an access token.
 ```
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 **Response:**
 ```json
@@ -472,7 +472,7 @@ Provide a name shorter than 4 characters.
 Make the request without providing an access token.
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 ---
 
@@ -580,7 +580,7 @@ Provide an invalid ID or a name shorter than 4 characters.
 Make the request without an access token.
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 #### 404 — Not Found
 Provide an ID that does not correspond to any existing author (e.g. `999`).
@@ -601,7 +601,7 @@ Provide an invalid ID such as `-1`.
 Make the request without an access token.
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 #### 404 — Not Found
 Provide an ID that does not correspond to any existing author (e.g. `999`).
@@ -659,7 +659,7 @@ Omit a required field or provide invalid values (e.g. negative price, name short
 Make the request without an access token.
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 ---
 
@@ -749,7 +749,7 @@ Provide an invalid ID or invalid book data.
 Make the request without an access token.
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 #### 404 — Not Found
 Provide an ID that does not correspond to any existing book (e.g. `999`).
@@ -777,7 +777,7 @@ Provide an invalid ID such as `-1`.
 Make the request without an access token.
 
 #### 403 — Forbidden
-Provide an access token for a non-admin user.
+Provide an access token for a non-admin user. (`user@example.com` | `password123`)
 
 #### 404 — Not Found
 Provide an ID that does not correspond to any existing book (e.g. `999`).

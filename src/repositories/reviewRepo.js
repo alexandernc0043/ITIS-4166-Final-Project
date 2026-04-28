@@ -26,7 +26,9 @@ export async function createReview(data) {
 }
 export async function getReviewById(id) {
   try {
-    const foundReview = await prisma.review.findUnique({ where: { id } });
+    const foundReview = await prisma.review.findUniqueOrThrow({
+      where: { id },
+    });
     return foundReview;
   } catch (error) {
     handlePrismaError(error);
