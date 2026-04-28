@@ -21,7 +21,7 @@ export async function createReviewHandler(req, res) {
 }
 export async function updateReviewHandler(req, res) {
   const { rating, content, bookId } = req.body;
-  const { id } = req.user;
+  const { id } = parseInt(req.params.id);
   const updatedReview = await service.updateReview(id, {
     rating,
     content,
